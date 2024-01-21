@@ -1,5 +1,5 @@
-# Base Image
-FROM openjdk:19-rc
+# Base Image, e.g., openjdk:19-rc
+FROM eclipse-temurin:19-jdk-jammy
 
 
 # Arguments
