@@ -4,8 +4,8 @@ FROM openjdk:19-jdk-alpine3.16
 
 # Arguments
 ARG SCALA_VERSION=2.13.12
-ARG SCALA_ARCHIVE=v${SCALA_VERSION}
-ARG SCALA_UNLOAD=https://github.com/scala/scala/archive/${SCALA_ARCHIVE}.tar.gz
+ARG SCALA_ARCHIVE=${SCALA_VERSION}
+ARG SCALA_UNLOAD=https://github.com/scala/scala/archive/v${SCALA_VERSION}.tar.gz
 
 ARG MAVEN_MAJOR=3
 ARG MAVEN_VERSION=${MAVEN_MAJOR}.9.6
@@ -22,12 +22,13 @@ ARG SPARK_UNLOAD=https://www.apache.org/dyn/closer.lua/spark/spark-${SPARK_VERSI
 
 
 # Installing software
-RUN apk update && \
-    wget -q ${SCALA_UNLOAD} && tar zxf ${SCALA_ARCHIVE}.tar.gz && mv ${SCALA_ARCHIVE} /opt/scala && rm ${SCALA_ARCHIVE}* && \
-    wget -q ${MAVEN_UNLOAD} && tar zxf ${MAVEN_ARCHIVE}.tar.gz && mv ${MAVEN_ARCHIVE} /opt/maven && rm ${MAVEN_ARCHIVE}* && \
-    wget -q ${HADOOP_UNLOAD} && tar zxf ${HADOOP_ARCHIVE}.tar.gz && mv ${HADOOP_ARCHIVE} /opt/hadoop && rm ${HADOOP_ARCHIVE}* && \
-    wget -q ${SPARK_UNLOAD} && tar -zxvf ${SPARK_ARCHIVE}.tgz && mv ${SPARK_ARCHIVE} /opt/spark && rm ${SCALA_ARCHIVE}* && \
-    cp /opt/spark/conf/log4j2.properties.template /opt/spark/conf/log4j2.properties
+RUN apk update
+# RUN apk update && \
+#    wget -q ${SCALA_UNLOAD} && tar zxf ${SCALA_ARCHIVE}.tar.gz && mv ${SCALA_ARCHIVE} /opt/scala && rm ${SCALA_ARCHIVE}* && \
+#    wget -q ${MAVEN_UNLOAD} && tar zxf ${MAVEN_ARCHIVE}.tar.gz && mv ${MAVEN_ARCHIVE} /opt/maven && rm ${MAVEN_ARCHIVE}* && \
+#    wget -q ${HADOOP_UNLOAD} && tar zxf ${HADOOP_ARCHIVE}.tar.gz && mv ${HADOOP_ARCHIVE} /opt/hadoop && rm ${HADOOP_ARCHIVE}* && \
+#    wget -q ${SPARK_UNLOAD} && tar -zxvf ${SPARK_ARCHIVE}.tgz && mv ${SPARK_ARCHIVE} /opt/spark && rm ${SCALA_ARCHIVE}* && \
+#    cp /opt/spark/conf/log4j2.properties.template /opt/spark/conf/log4j2.properties
 
 
 # Setting-up environment variables
