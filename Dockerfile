@@ -17,8 +17,8 @@ ARG HADOOP_ARCHIVE=hadoop-${HADOOP_VERSION}
 ARG HADOOP_UNLOAD=https://dlcdn.apache.org/hadoop/common/${HADOOP_ARCHIVE}/${HADOOP_ARCHIVE}.tar.gz
 
 ARG SPARK_VERSION=3.4.2
-ARG SPARK_ARCHIVE=spark-${SPARK_VERSION}-bin-hadoop3
-ARG SPARK_UNLOAD=https://www.apache.org/dyn/closer.lua/spark/spark-${SPARK_VERSION}/${SPARK_ARCHIVE}.tgz
+ARG SPARK_ARCHIVE=spark-${SPARK_VERSION}
+ARG SPARK_UNLOAD=https://dlcdn.apache.org/spark/${SPARK_ARCHIVE}/${SPARK_ARCHIVE}.tgz
 
 
 # Installing software
