@@ -1,4 +1,4 @@
-# Base Image, e.g., openjdk:19-rc
+# Base Image, e.g., openjdk:19-rc, openjdk:19-jdk-alpine3.16
 FROM eclipse-temurin:19-jdk-jammy
 
 
