@@ -4,8 +4,8 @@ FROM openjdk:19-jdk-alpine3.16
 
 # Arguments
 ARG SCALA_VERSION=2.13.12
-ARG SCALA_ARCHIVE=${SCALA_VERSION}
-ARG SCALA_UNLOAD=https://github.com/scala/scala/archive/v${SCALA_VERSION}.tar.gz
+ARG SCALA_ARCHIVE=scala-${SCALA_VERSION}
+ARG SCALA_UNLOAD=https://downloads.lightbend.com/scala/${SCALA_VERSION}/scala-${SCALA_VERSION}.tgz
 
 ARG MAVEN_MAJOR=3
 ARG MAVEN_VERSION=${MAVEN_MAJOR}.9.6
@@ -24,7 +24,7 @@ ARG SPARK_UNLOAD=https://www.apache.org/dyn/closer.lua/spark/spark-${SPARK_VERSI
 # Installing software
 RUN apk update && apk add --no-cache bash && apk add --no-cache wget && apk add --no-cache tar
 # RUN apk update && \
-#    wget -q ${SCALA_UNLOAD} && tar zxf ${SCALA_ARCHIVE}.tar.gz && mv ${SCALA_ARCHIVE} /opt/scala && rm ${SCALA_ARCHIVE}* && \
+#    wget -q ${SCALA_UNLOAD} && tar -zxvf ${SCALA_ARCHIVE}.tgz && mv ${SCALA_ARCHIVE} /opt/scala && rm ${SCALA_ARCHIVE}* && \
 #    wget -q ${MAVEN_UNLOAD} && tar zxf ${MAVEN_ARCHIVE}.tar.gz && mv ${MAVEN_ARCHIVE} /opt/maven && rm ${MAVEN_ARCHIVE}* && \
 #    wget -q ${HADOOP_UNLOAD} && tar zxf ${HADOOP_ARCHIVE}.tar.gz && mv ${HADOOP_ARCHIVE} /opt/hadoop && rm ${HADOOP_ARCHIVE}* && \
 #    wget -q ${SPARK_UNLOAD} && tar -zxvf ${SPARK_ARCHIVE}.tgz && mv ${SPARK_ARCHIVE} /opt/spark && rm ${SCALA_ARCHIVE}* && \
