@@ -48,12 +48,11 @@ Apache Spark Scala projects depend on
 * [Apache Maven](https://maven.apache.org)
   * [3.9.6](https://dlcdn.apache.org/maven/maven-3/3.9.6/binaries/)
 
-* [Apache Spark](https://spark.apache.org)
-  * [3.4.2](https://dlcdn.apache.org/spark/spark-3.4.2/)
-
 * [Hadoop](https://hadoop.apache.org)
   * [3.3.6](https://dlcdn.apache.org/hadoop/common/hadoop-3.3.6/)
 
+* [Apache Spark](https://spark.apache.org)
+  * [3.4.2](https://dlcdn.apache.org/spark/spark-3.4.2/)
 
 Outline the software versions via
 
