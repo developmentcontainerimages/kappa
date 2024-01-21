@@ -39,6 +39,11 @@ ENV SPARK_HOME=/opt/spark
 ENV PATH=${SCALA_HOME}/bin:${MAVEN_HOME}/bin:${HADOOP_HOME}/bin:${SPARK_HOME}/bin:${SPARK_HOME}/sbin:$PATH
 
 
+# If the steps of a `Dockerfile` use files that are different from the `context` file, COPY the
+# file of each step separately; and RUN the file immediately after COPY
+WORKDIR /app
+
+
 # Expose ports for monitoring.
 # SparkContext web UI on 4040 -- only available for the duration of the application.
 # Spark master’s web UI on 8080.
