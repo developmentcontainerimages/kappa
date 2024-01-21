@@ -24,10 +24,10 @@ ARG SPARK_UNLOAD=https://dlcdn.apache.org/spark/${SPARK_ARCHIVE}/${SPARK_ARCHIVE
 # Installing software
 RUN apk update && apk add --no-cache bash && apk add --no-cache wget && apk add --no-cache tar && \
     wget -q ${SCALA_UNLOAD} && tar -zxvf ${SCALA_ARCHIVE}.tgz && mv ${SCALA_ARCHIVE} /opt/scala && rm ${SCALA_ARCHIVE}* && \
-    wget -q ${MAVEN_UNLOAD} && tar zxf ${MAVEN_ARCHIVE}-bin.tar.gz && mv ${MAVEN_ARCHIVE} /opt/maven && rm ${MAVEN_ARCHIVE}*
-#    wget -q ${HADOOP_UNLOAD} && tar zxf ${HADOOP_ARCHIVE}.tar.gz && mv ${HADOOP_ARCHIVE} /opt/hadoop && rm ${HADOOP_ARCHIVE}* && \
-#    wget -q ${SPARK_UNLOAD} && tar -zxvf ${SPARK_ARCHIVE}.tgz && mv ${SPARK_ARCHIVE} /opt/spark && rm ${SCALA_ARCHIVE}* && \
-#    cp /opt/spark/conf/log4j2.properties.template /opt/spark/conf/log4j2.properties
+    wget -q ${MAVEN_UNLOAD} && tar zxf ${MAVEN_ARCHIVE}-bin.tar.gz && mv ${MAVEN_ARCHIVE} /opt/maven && rm ${MAVEN_ARCHIVE}* && \
+    wget -q ${HADOOP_UNLOAD} && tar zxf ${HADOOP_ARCHIVE}.tar.gz && mv ${HADOOP_ARCHIVE} /opt/hadoop && rm ${HADOOP_ARCHIVE}* && \
+    wget -q ${SPARK_UNLOAD} && tar -zxvf ${SPARK_ARCHIVE}.tgz && mv ${SPARK_ARCHIVE} /opt/spark && rm ${SCALA_ARCHIVE}* && \
+    cp /opt/spark/conf/log4j2.properties.template /opt/spark/conf/log4j2.properties
 
 
 # Setting-up environment variables
