@@ -1,5 +1,5 @@
-# Base Image, e.g., openjdk:19-rc, openjdk:19-jdk-alpine3.16
-FROM eclipse-temurin:19-jdk-jammy
+# Base Image, e.g., openjdk:19-rc, eclipse-temurin:19-jdk-jammy, openjdk:19-jdk-alpine3.16
+FROM openjdk:19-jdk-alpine3.16
 
 
 # Arguments
@@ -23,7 +23,6 @@ ARG SPARK_UNLOAD=https://www.apache.org/dyn/closer.lua/spark/spark-${SPARK_VERSI
 
 # Installing software
 RUN apk update && \
-    apk cache clean  && \
     wget -q ${SCALA_UNLOAD} && tar zxf ${SCALA_ARCHIVE}.tar.gz && mv ${SCALA_ARCHIVE} /opt/scala && rm ${SCALA_ARCHIVE}* && \
     wget -q ${MAVEN_UNLOAD} && tar zxf ${MAVEN_ARCHIVE}.tar.gz && mv ${MAVEN_ARCHIVE} /opt/maven && rm ${MAVEN_ARCHIVE}* && \
     wget -q ${HADOOP_UNLOAD} && tar zxf ${HADOOP_ARCHIVE}.tar.gz && mv ${HADOOP_ARCHIVE} /opt/hadoop && rm ${HADOOP_ARCHIVE}* && \
