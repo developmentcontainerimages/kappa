@@ -1,0 +1,23 @@
+name: Kappa Project
+
+on: [push]
+
+jobs:
+    build:
+
+        name: Buiding for Docker Hub
+        runs-on: ubuntu-latest
+    
+        steps:
+            - uses: actions/checkout@v3
+    
+            - name: Build the Docker image
+              run: docker build . -f Dockerfile --tag greyhypotheses/base:ApacheSparkScala3.4.2
+    
+            - shell: bash
+              env:
+                DOCKER_NAME: ${{ secrets.DOCKER_NAME }}
+                DOCKER_ENTRY: ${{ secrets.DOCKER_ENTRY }}
+              run: |
+                docker login -u "${DOCKER_NAME}" -p "${DOCKER_ENTRY}"
+                docker push greyhypotheses/base:ApacheSparkScala3.4.2
