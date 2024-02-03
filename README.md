@@ -29,6 +29,14 @@ wherein `#.#.##` is the build number; depending on <span title='Project Object M
 
 * https://docs.docker.com/build/buildkit/
 
+
+The development container is built via
+
+```shell
+docker build . --file .devcontainer/Dockerfile --tag kappa
+```
+
+
 <br>
 
 ### Development Environment Notes
