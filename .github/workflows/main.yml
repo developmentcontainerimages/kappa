@@ -20,4 +20,4 @@ jobs:
                 DOCKER_ENTRY: ${{ secrets.DOCKER_ENTRY }}
               run: |
                 docker login -u "${DOCKER_NAME}" -p "${DOCKER_ENTRY}"
-                docker push greyhypotheses/base:ApacheSparkScala3.4.2
+                docker push greyhypotheses/base:ApacheSparkScala
