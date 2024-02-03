@@ -1,5 +1,4 @@
 # The base image
-# FROM spark:3.5.0-scala2.12-java17-ubuntu
 FROM eclipse-temurin:21.0.2_13-jre-jammy
 
 
