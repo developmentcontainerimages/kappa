@@ -1,11 +1,12 @@
+# https://github.com/marketplace/actions/build-and-push-docker-images  
 name: Kappa Project
 
 # Later: Via the master branch only
 on: [push]
 
 jobs:
-    docker:
-        name: Buiding for Docker Hub
+    development:
+        name: For Development
         runs-on: ubuntu-latest    
         steps:
             - name: checkout
@@ -17,7 +18,6 @@ jobs:
                 username: ${{ secrets.DOCKER_NAME }}
                 password: ${{ secrets.DOCKER_ENTRY }}
 
-              # https://github.com/marketplace/actions/build-and-push-docker-images  
             - name: Build the Docker image
               shell: bash
               env:
@@ -25,5 +25,5 @@ jobs:
                 REPOSITORY: 'base'
                 IMAGE_TAG: 'spark_scala_3.5.0'
               run: |
-                docker build . --file Dockerfile --tag "$REGISTRY/$REPOSITORY:$IMAGE_TAG"
+                docker build . --file .devcontainer/Dockerfile --tag "$REGISTRY/$REPOSITORY:$IMAGE_TAG"
                 docker push "$REGISTRY/$REPOSITORY:$IMAGE_TAG"
