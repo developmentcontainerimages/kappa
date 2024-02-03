@@ -40,11 +40,11 @@ ENV LANG=en_GB.UTF-8 LANGUAGE=en_GB:en LC_ALL=en_GB.UTF-8
 
 
 # Setting-up environment variables
-#ENV SCALA_HOME=/opt/scala
-#ENV MAVEN_HOME=/opt/maven
-#ENV HADOOP_HOME=/opt/hadoop
-#ENV SPARK_HOME=/opt/spark
-#ENV PATH=${SCALA_HOME}/bin:${MAVEN_HOME}/bin:${HADOOP_HOME}/bin:${SPARK_HOME}/bin:${SPARK_HOME}/sbin:$PATH
+ENV SCALA_HOME=/opt/scala
+ENV MAVEN_HOME=/opt/maven
+ENV HADOOP_HOME=/opt/hadoop
+ENV SPARK_HOME=/opt/spark
+ENV PATH=${SCALA_HOME}/bin:${MAVEN_HOME}/bin:${HADOOP_HOME}/bin:${SPARK_HOME}/bin:${SPARK_HOME}/sbin:$PATH
 
 
 # If the steps of a `Dockerfile` use files that are different from the `context` file, COPY the
