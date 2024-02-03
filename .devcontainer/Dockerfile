@@ -30,9 +30,9 @@ RUN apt update && apt -y install wget && apt -y install locales locales-all && \
     echo "Europe/London" > /etc/timezone && dpkg-reconfigure -f noninteractive tzdata && \
     wget -q ${SCALA_UNLOAD} && tar -zxvf ${SCALA_ARCHIVE}.tgz && mv ${SCALA_ARCHIVE} /opt/scala && rm ${SCALA_ARCHIVE}* && \
     wget -q ${MAVEN_UNLOAD} && tar zxf ${MAVEN_ARCHIVE}-bin.tar.gz && mv ${MAVEN_ARCHIVE} /opt/maven && rm ${MAVEN_ARCHIVE}* && \
-    wget -q ${HADOOP_UNLOAD} && tar zxf ${HADOOP_ARCHIVE}.tar.gz && mv ${HADOOP_ARCHIVE} /opt/hadoop && rm ${HADOOP_ARCHIVE}* && \
-    wget -q ${SPARK_UNLOAD} && tar -zxvf ${SPARK_ARCHIVE}.tgz && mv ${SPARK_ARCHIVE} /opt/spark && rm ${SCALA_ARCHIVE}* && \
-    cp /opt/spark/conf/log4j2.properties.template /opt/spark/conf/log4j2.properties
+    wget -q ${HADOOP_UNLOAD} && tar zxf ${HADOOP_ARCHIVE}.tar.gz && mv ${HADOOP_ARCHIVE} /opt/hadoop && rm ${HADOOP_ARCHIVE}*
+#    wget -q ${SPARK_UNLOAD} && tar -zxvf ${SPARK_ARCHIVE}.tgz && mv ${SPARK_ARCHIVE} /opt/spark && rm ${SCALA_ARCHIVE}* && \
+#    cp /opt/spark/conf/log4j2.properties.template /opt/spark/conf/log4j2.properties
 
 
 # Locales
@@ -40,11 +40,11 @@ ENV LANG=en_GB.UTF-8 LANGUAGE=en_GB:en LC_ALL=en_GB.UTF-8
 
 
 # Setting-up environment variables
-ENV SCALA_HOME=/opt/scala
-ENV MAVEN_HOME=/opt/maven
-ENV HADOOP_HOME=/opt/hadoop
-ENV SPARK_HOME=/opt/spark
-ENV PATH=${SCALA_HOME}/bin:${MAVEN_HOME}/bin:${HADOOP_HOME}/bin:${SPARK_HOME}/bin:${SPARK_HOME}/sbin:$PATH
+#ENV SCALA_HOME=/opt/scala
+#ENV MAVEN_HOME=/opt/maven
+#ENV HADOOP_HOME=/opt/hadoop
+#ENV SPARK_HOME=/opt/spark
+#ENV PATH=${SCALA_HOME}/bin:${MAVEN_HOME}/bin:${HADOOP_HOME}/bin:${SPARK_HOME}/bin:${SPARK_HOME}/sbin:$PATH
 
 
 # If the steps of a `Dockerfile` use files that are different from the `context` file, COPY the
