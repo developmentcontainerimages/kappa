@@ -2,6 +2,10 @@
 FROM eclipse-temurin:21.0.2_13-jre-jammy
 
 
+# Locale
+ENV LANG=en_GB.UTF-8 LANGUAGE=en_GB:en LC_ALL=en_GB.UTF-8
+
+
 # Environment
 SHELL [ "/bin/bash", "-c" ]
 
@@ -24,24 +28,21 @@ ARG SPARK_VERSION=3.5.0
 ARG SPARK_ARCHIVE=spark-${SPARK_VERSION}
 ARG SPARK_UNLOAD=https://dlcdn.apache.org/spark/${SPARK_ARCHIVE}/${SPARK_ARCHIVE}.tgz
 
+
 # Installing software
-RUN apt-get -y install wget
-#    wget -q ${SCALA_UNLOAD} && tar -zxvf ${SCALA_ARCHIVE}.tgz && mv ${SCALA_ARCHIVE} /opt/scala && rm ${SCALA_ARCHIVE}* && \
-#    wget -q ${MAVEN_UNLOAD} && tar zxf ${MAVEN_ARCHIVE}-bin.tar.gz && mv ${MAVEN_ARCHIVE} /opt/maven && rm ${MAVEN_ARCHIVE}* && \
-#    wget -q ${HADOOP_UNLOAD} && tar zxf ${HADOOP_ARCHIVE}.tar.gz && mv ${HADOOP_ARCHIVE} /opt/hadoop && rm ${HADOOP_ARCHIVE}* && \
-#    cp /opt/spark/conf/log4j2.properties.template /opt/spark/conf/log4j2.properties
+RUN apt update && apt -y install wget && \
+    wget -q ${SCALA_UNLOAD} && tar -zxvf ${SCALA_ARCHIVE}.tgz && mv ${SCALA_ARCHIVE} /opt/scala && rm ${SCALA_ARCHIVE}* && \
+    wget -q ${MAVEN_UNLOAD} && tar zxf ${MAVEN_ARCHIVE}-bin.tar.gz && mv ${MAVEN_ARCHIVE} /opt/maven && rm ${MAVEN_ARCHIVE}* && \
+    wget -q ${HADOOP_UNLOAD} && tar zxf ${HADOOP_ARCHIVE}.tar.gz && mv ${HADOOP_ARCHIVE} /opt/hadoop && rm ${HADOOP_ARCHIVE}* && \
+    cp /opt/spark/conf/log4j2.properties.template /opt/spark/conf/log4j2.properties
 
 
 # Setting-up environment variables
-#ENV SCALA_HOME=/opt/scala
-#ENV MAVEN_HOME=/opt/maven
-#ENV HADOOP_HOME=/opt/hadoop
-#ENV SPARK_HOME=/opt/spark
-#ENV PATH=${SCALA_HOME}/bin:${MAVEN_HOME}/bin:${HADOOP_HOME}/bin:${SPARK_HOME}/bin:${SPARK_HOME}/sbin:$PATH
-
-
-# Locale
-ENV LANG=en_GB.UTF-8 LANGUAGE=en_GB:en LC_ALL=en_GB.UTF-8
+ENV SCALA_HOME=/opt/scala
+ENV MAVEN_HOME=/opt/maven
+ENV HADOOP_HOME=/opt/hadoop
+ENV SPARK_HOME=/opt/spark
+ENV PATH=${SCALA_HOME}/bin:${MAVEN_HOME}/bin:${HADOOP_HOME}/bin:${SPARK_HOME}/bin:${SPARK_HOME}/sbin:$PATH
 
 
 # If the steps of a `Dockerfile` use files that are different from the `context` file, COPY the
