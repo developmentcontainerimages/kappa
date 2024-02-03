@@ -27,14 +27,32 @@ wherein `#.#.##` is the build number; depending on <span title='Project Object M
 
 ### Docker
 
-* https://docs.docker.com/build/buildkit/
-
-
 The development container is built via
 
 ```shell
 docker build . --file .devcontainer/Dockerfile --tag kappa
 ```
+
+Afterwards, the list of images should include an image named `kappa`
+
+```shell
+# Listing docker images
+docker images
+```
+
+Subsequently, a container/instance of the image `kappa` may be used as a development environment via the commands
+
+```shell
+docker run --rm -i -t -p 127.0.0.1:10000:8888 -w /app --mount type=bind,src="$(pwd)",target=/app kappa
+```
+
+whereby
+
+* [--rm](https://docs.docker.com/engine/reference/commandline/run/#:~:text=a%20container%20exits-,%2D%2Drm,-Automatically%20remove%20the): Automatically remove container on exit ...
+* [-i](https://docs.docker.com/engine/reference/commandline/run/#:~:text=and%20reaps%20processes-,%2D%2Dinteractive,-%2C%20%2Di): Interactive mode.
+* [-p](https://docs.docker.com/engine/reference/commandline/run/#:~:text=%2D%2Dpublish%20%2C-,%2Dp,-Publish%20a%20container%E2%80%99s): Maps the host port 10000 to the container port 8888.
+
+The docker pages discuss the [--mount](https://docs.docker.com/build/guide/mounts/) flag in detail.
 
 
 <br>
