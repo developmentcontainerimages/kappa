@@ -65,20 +65,21 @@ Apache Spark Scala projects depend on
   * [Repositories for POM (Project Object Model)](https://mvnrepository.com/repos)
   * [Project Object Model](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)
 
-* [OpenJDK](https://hub.docker.com/_/openjdk)
-  * [19](https://hub.docker.com/layers/library/openjdk/19-rc/images/sha256-973fe414a4e1f3e41e291b068183684a88827dd2cb5f78214da26632d5218702?context=explore)
+* [OpenJDK by Eclipse Temurin](https://hub.docker.com/_/eclipse-temurin)
+  * Example: [Java 17 Releases](https://hub.docker.com/_/eclipse-temurin/tags?page=1&name=17)
+  * The openjdk.org images [OpenJDK](https://hub.docker.com/_/openjdk) are under deprecation.
 
 * [Scala](https://scala-lang.org)
-  * [2.13.12](https://scala-lang.org/download/2.13.12.html)
+  * [Releases](https://scala-lang.org/download/all.html)
 
 * [Apache Maven](https://maven.apache.org)
-  * [3.9.6](https://dlcdn.apache.org/maven/maven-3/3.9.6/binaries/)
+  * [Releases 3](https://dlcdn.apache.org/maven/maven-3/)
 
 * [Hadoop](https://hadoop.apache.org)
-  * [3.3.6](https://dlcdn.apache.org/hadoop/common/hadoop-3.3.6/)
+  * [Releases](https://dlcdn.apache.org/hadoop/common/)
 
 * [Apache Spark](https://spark.apache.org)
-  * [3.4.2](https://dlcdn.apache.org/spark/spark-3.4.2/)
+  * [Releases](https://dlcdn.apache.org/spark/)
 
 Outline the software versions via
 
