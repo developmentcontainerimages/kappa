@@ -1,8 +1,12 @@
 <br>
 
+
 **Apache Spark Scala Base**
 
+
 <br>
+<br>
+
 
 * [Background](#background)
   * [A base image](#a-base-image)
@@ -11,7 +15,10 @@
 * [Docker](#docker)
 * [Submitting Applications](#submitting-applications)
 
+
 <br>
+<br>
+
 
 ## Background
 
@@ -37,6 +44,8 @@ Apache Spark Scala projects depend on
 * [Apache Spark](https://spark.apache.org)
   * [Releases](https://dlcdn.apache.org/spark/)
 
+<br>
+
 Outline the software versions via
 
 > ```shell
@@ -48,6 +57,7 @@ Outline the software versions via
 > ```
 
 
+<br>
 <br>
 
 
@@ -101,6 +111,7 @@ Upcoming Notes:
 - [ ] The production image FROM base image.
 
 
+<br>
 <br>
 
 
