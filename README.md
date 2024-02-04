@@ -62,7 +62,8 @@ docker images
 Subsequently, a container/instance of the image `tag.name` may be used as a development environment via the commands
 
 ```shell
-docker run --rm -i -t -p 127.0.0.1:10000:8888 -w /app --mount type=bind,src="$(pwd)",target=/app {tag.name}
+docker run --rm -i -t -p 127.0.0.1:10000:8888 -w /app \
+  --mount type=bind,src="$(pwd)",target=/app {tag.name}
 ```
 
 whereby
