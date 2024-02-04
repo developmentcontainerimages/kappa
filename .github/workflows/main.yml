@@ -25,5 +25,5 @@ jobs:
                 REPOSITORY: 'aiu'
                 IMAGE_TAG: 'spark_scala_3.5.0'
               run: |
-                docker build . --file .devcontainer/Dockerfile --tag "$REGISTRY/$REPOSITORY:$IMAGE_TAG"
+                docker build . --file .base/Dockerfile --tag "$REGISTRY/$REPOSITORY:$IMAGE_TAG"
                 docker push "$REGISTRY/$REPOSITORY:$IMAGE_TAG"
