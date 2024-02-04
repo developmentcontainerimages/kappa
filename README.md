@@ -4,6 +4,15 @@
 
 <br>
 
+* [Background](#background)
+  * [A base image](#a-base-image)
+  * [Registering the base image](#registering-the-base-image)
+*From base image](#from-base-image)
+* [Docker](#docker)
+* [Submitting Applications](#submitting-applications)
+
+<br>
+
 ## Background
 
 Apache Spark Scala projects depend on
