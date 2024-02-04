@@ -4,60 +4,7 @@
 
 <br>
 
-### Apache Spark Notes
-
-Remember, for local exploration of apache spark scala executions via the interface you will need the commands
-
-```bash
-    spark-class.cmd org.apache.spark.deploy.master.Master
-    spark-class.cmd org.apache.spark.deploy.worker.Worker spark://___.___._.__:7077
-    mvn clean package
-```
-
-```shell
-    spark-submit --class com.grey...App 
-        --master spark://___.___._.__:7077 
-        --total-executor-cores 4 
-        target/...-#.#.##-jar-with-dependencies.jars
-```
-
-wherein `#.#.##` is the build number; depending on <span title='Project Object Model'>POM</span> settings, each run of `mvn clean package` creates a string of the form `...-#.#.##-jar-with-dependencies.jars`.
-
-<br>
-
-### Docker
-
-The development container is built via
-
-```shell
-docker build . --file .devcontainer/Dockerfile --tag kappa
-```
-
-Afterwards, the list of images should include an image named `kappa`
-
-```shell
-# Listing docker images
-docker images
-```
-
-Subsequently, a container/instance of the image `kappa` may be used as a development environment via the commands
-
-```shell
-docker run --rm -i -t -p 127.0.0.1:10000:8888 -w /app --mount type=bind,src="$(pwd)",target=/app kappa
-```
-
-whereby
-
-* [--rm](https://docs.docker.com/engine/reference/commandline/run/#:~:text=a%20container%20exits-,%2D%2Drm,-Automatically%20remove%20the): Automatically remove container on exit ...
-* [-i](https://docs.docker.com/engine/reference/commandline/run/#:~:text=and%20reaps%20processes-,%2D%2Dinteractive,-%2C%20%2Di): Interactive mode.
-* [-p](https://docs.docker.com/engine/reference/commandline/run/#:~:text=%2D%2Dpublish%20%2C-,%2Dp,-Publish%20a%20container%E2%80%99s): Maps the host port 10000 to the container port 8888.
-
-The docker pages discuss the [--mount](https://docs.docker.com/build/guide/mounts/) flag in detail.
-
-
-<br>
-
-### Development Environment Notes
+## Background
 
 Apache Spark Scala projects depend on
 
@@ -90,6 +37,82 @@ Outline the software versions via
 > hadoop version
 > spark-submit --version
 > ```
+
+
+<br>
+
+
+## Docker
+
+### A base image
+
+Herein, an apache spark scala image is built via
+
+```shell
+docker build . --file .devcontainer/Dockerfile --tag {tag.name}
+```
+
+Afterwards, the list of images should include an image named `tag.name`
+
+```shell
+# Listing docker images
+docker images
+```
+
+Subsequently, a container/instance of the image `tag.name` may be used as a development environment via the commands
+
+```shell
+docker run --rm -i -t -p 127.0.0.1:10000:8888 -w /app --mount type=bind,src="$(pwd)",target=/app {tag.name}
+```
+
+whereby
+
+* [--rm](https://docs.docker.com/engine/reference/commandline/run/#:~:text=a%20container%20exits-,%2D%2Drm,-Automatically%20remove%20the): Automatically remove container on exit ...
+* [-i](https://docs.docker.com/engine/reference/commandline/run/#:~:text=and%20reaps%20processes-,%2D%2Dinteractive,-%2C%20%2Di): Interactive mode.
+* [-p](https://docs.docker.com/engine/reference/commandline/run/#:~:text=%2D%2Dpublish%20%2C-,%2Dp,-Publish%20a%20container%E2%80%99s): Maps the host port 10000 to the container port 8888.
+
+The docker pages discuss the [--mount](https://docs.docker.com/build/guide/mounts/) flag in detail.
+
+<br>
+
+### Registering the base image
+
+Upcoming Notes:
+
+- [ ] Docker Hub registration via GitHub Actions
+
+<br>
+
+### FROM Base Image
+
+Upcoming Notes:
+
+- [ ] A remote development environment FROM base image
+- [ ] The production image FROM base image.
+
+
+<br>
+
+
+## Submitting Applications
+
+Remember, for local exploration of apache spark scala executions via the interface you will need the commands
+
+```bash
+    spark-class.cmd org.apache.spark.deploy.master.Master
+    spark-class.cmd org.apache.spark.deploy.worker.Worker spark://___.___._.__:7077
+    mvn clean package
+```
+
+```shell
+    spark-submit --class com.grey...App 
+        --master spark://___.___._.__:7077 
+        --total-executor-cores 4 
+        target/...-#.#.##-jar-with-dependencies.jars
+```
+
+wherein `#.#.##` is the build number; depending on <span title='Project Object Model'>POM</span> settings, each run of `mvn clean package` creates a string of the form `...-#.#.##-jar-with-dependencies.jars`.
+
 
 <br>
 <br>
