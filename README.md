@@ -30,7 +30,7 @@ Apache Spark Scala projects depend on
   * [Project Object Model](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)
 
 * [OpenJDK by Eclipse Temurin](https://hub.docker.com/_/eclipse-temurin)
-  * Example: [Java 17 Releases](https://hub.docker.com/_/eclipse-temurin/tags?page=1&name=17)
+  * Example: [Java Development Kit (JDK)](https://hub.docker.com/_/eclipse-temurin/tags?page=1&name=jdk)
   * The openjdk.org images [OpenJDK](https://hub.docker.com/_/openjdk) are under deprecation.
 
 * [Scala](https://scala-lang.org)
