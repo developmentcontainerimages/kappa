@@ -65,24 +65,37 @@ Outline the software versions via
 
 ### A base image
 
-Herein, an apache spark scala image is built via
+Herein, a base apache spark scala image is built via
 
 ```shell
-docker build . --file .devcontainer/Dockerfile --tag {tag.name}
+docker build . --file .base/Dockerfile --tag {registry.name/repository.name:image.tag}
 ```
 
-Afterwards, the list of images should include an image named `tag.name`
+within a GitHub container.  The build script is within the GitHub Actions workflow file [main.yml](.github/workflows/main.yml).
+
+<br>
+
+### Registering the base image
+
+The GitHub Actions workflow file [main.yml](.github/workflows/main.yml) includes Docker Hub registration instructions, i.e., the image built via GitHub is registered within Docker Hub for public use.
+
+
+<br>
+
+
+### FROM Base Image
+
+Hence, to use the registered image for remote development, i.e., development via a container, run the command
 
 ```shell
-# Listing docker images
-docker images
+docker pull {registry.name/repository.name:image.tag}
 ```
 
 Subsequently, a container/instance of the image `tag.name` may be used as a development environment via the commands
 
 ```shell
 docker run --rm -i -t -p 127.0.0.1:10000:8888 -w /app \
-  --mount type=bind,src="$(pwd)",target=/app {tag.name}
+  --mount type=bind,src="$(pwd)",target=/app {registry.name/repository.name:image.tag}
 ```
 
 whereby
@@ -93,22 +106,12 @@ whereby
 
 The docker pages discuss the [--mount](https://docs.docker.com/build/guide/mounts/) flag in detail.
 
-<br>
-
-### Registering the base image
-
-Upcoming Notes:
-
-- [ ] Docker Hub registration via GitHub Actions
 
 <br>
 
-### FROM Base Image
+### Production States
 
-Upcoming Notes:
-
-- [ ] A remote development environment FROM base image
-- [ ] The production image FROM base image.
+- [ ] The production image
 
 
 <br>
