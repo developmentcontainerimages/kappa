@@ -9,10 +9,11 @@
 
 
 * [Background](#background)
+* [Docker](#docker)
   * [A base image](#a-base-image)
   * [Registering the base image](#registering-the-base-image)
-*From base image](#from-base-image)
-* [Docker](#docker)
+  * [Remote Development](#remote-development)
+  * [Production States](#production-states)
 * [Submitting Applications](#submitting-applications)
 
 
@@ -79,11 +80,9 @@ within a GitHub container.  The build script is within the GitHub Actions workfl
 
 The GitHub Actions workflow file [main.yml](.github/workflows/main.yml) includes Docker Hub registration instructions, i.e., the image built via GitHub is registered within Docker Hub for public use.
 
-
 <br>
 
-
-### FROM Base Image
+### Remote Development
 
 Hence, to use the registered image for remote development, i.e., development via a container, run the command
 
@@ -111,6 +110,7 @@ The docker pages discuss the [--mount](https://docs.docker.com/build/guide/mount
 
 ### Production States
 
+Upcoming:
 - [ ] The production image
 
 
