@@ -7,7 +7,7 @@ SHELL [ "/bin/bash", "-c" ]
 
 
 # The additional development needs, noting that the version tags are {major}.{minor}.{build}, are
-ARG SCALA_VERSION=2.12.18
+ARG SCALA_VERSION=2.13.8
 ARG SCALA_ARCHIVE=scala-${SCALA_VERSION}
 ARG SCALA_UNLOAD=https://downloads.lightbend.com/scala/${SCALA_VERSION}/scala-${SCALA_VERSION}.tgz
 
@@ -21,8 +21,8 @@ ARG HADOOP_ARCHIVE=hadoop-${HADOOP_VERSION}
 ARG HADOOP_UNLOAD=https://dlcdn.apache.org/hadoop/common/${HADOOP_ARCHIVE}/${HADOOP_ARCHIVE}.tar.gz
 
 ARG SPARK_VERSION=3.5.0
-ARG SPARK_ARCHIVE=spark-${SPARK_VERSION}
-ARG SPARK_UNLOAD=https://dlcdn.apache.org/spark/${SPARK_ARCHIVE}/${SPARK_ARCHIVE}.tgz
+ARG SPARK_ARCHIVE=spark-${SPARK_VERSION}-bin-hadoop3-scala2.13
+ARG SPARK_UNLOAD=https://dlcdn.apache.org/spark/spark-${SPARK_VERSION}/${SPARK_ARCHIVE}.tgz
 
 
 # Installing software
