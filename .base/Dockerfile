@@ -1,5 +1,5 @@
 # The base image
-FROM eclipse-temurin:21.0.2_13-jre-jammy
+FROM eclipse-temurin:21.0.2_13-jdk-jammy
 
 
 # Environment
