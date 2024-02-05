@@ -27,6 +27,7 @@ ARG SPARK_UNLOAD=https://dlcdn.apache.org/spark/spark-${SPARK_VERSION}/${SPARK_A
 
 # Installing software
 RUN apt update && apt -y install wget && apt -y install locales locales-all && \
+    add-apt-repository ppa:git-core/ppa && apt -y install git-all && \
     echo "Europe/London" > /etc/timezone && dpkg-reconfigure -f noninteractive tzdata && \
     wget -q ${SCALA_UNLOAD} && tar -zxvf ${SCALA_ARCHIVE}.tgz && mv ${SCALA_ARCHIVE} /opt/scala && rm ${SCALA_ARCHIVE}* && \
     wget -q ${MAVEN_UNLOAD} && tar zxf ${MAVEN_ARCHIVE}-bin.tar.gz && mv ${MAVEN_ARCHIVE} /opt/maven && rm ${MAVEN_ARCHIVE}* && \
